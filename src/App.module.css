@@ -1,0 +1,10 @@
+.container {
+  display: grid;
+  justify-items: center;
+}
+
+.appName {
+  color: #1AB26B;
+  font-size: 3rem;
+  font-family: "Trebuchet MS";
+}

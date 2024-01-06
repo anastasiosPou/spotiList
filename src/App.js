@@ -1,24 +1,26 @@
 import logo from './logo.svg';
-import './App.css';
+import styles from './App.module.css';
 import tracks from './mockData';
 
 function App() {
+  const mockData = [...tracks];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className={styles.container}>
+      <header>
+        <h1 className={styles.appName}>SpotiList</h1>
       </header>
+      <main>
+        <section>
+          <p>Search your favorite songs and create playlists</p>
+          <ul>
+            {
+              mockData.map(track => {
+                return <li>{track.name}</li>
+              })
+            }
+          </ul>
+        </section>
+      </main>
     </div>
   );
 }
