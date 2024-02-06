@@ -2,7 +2,7 @@ import styles from "./SearchBar.module.css";
 import {useState} from "react";
 
 function SearchBar({onHandleSubmit}) {
-  let [userInput, setUserInput] = useState("");
+  const [userInput, setUserInput] = useState("");
 
   const onUserInputChange = ({target}) => {
     setUserInput(target.value);

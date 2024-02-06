@@ -1,0 +1,15 @@
+.track {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  background-color: #fff;
+}
+
+.addButton {
+  color: #1AB26B;
+  align-self: center;
+  border: none;
+  background-color: transparent;
+  font-size: 2rem;
+  cursor: pointer;
+}
