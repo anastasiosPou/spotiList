@@ -2,21 +2,19 @@ import styles from './App.module.css';
 import tracks from './mockData';
 import {useState} from "react";
 import Track from "./Components/Track/Track";
+import SearchBar from "./Components/SearchBar/SearchBar";
 
 function App() {
   const mockData = [...tracks];
-  let [userInput, setUserInput] = useState("");
   let [searchResults, setSearchResults] = useState([]);
 
-  const onUserInputChange = ({target}) => {
-    setUserInput(target.value);
-  };
-
-  const handleSubmit = e => {
+  /*
+  When we press the Search button, handleSubmit should filter the mock data(or send the api call to Spotify)
+  and update the searchResults state variable with the results.
+   */
+  const handleSubmit = (e, userInput) => {
     e.preventDefault();
-    if (userInput === "") {
-      return;
-    }
+    if (userInput === "") {return;}
     setSearchResults(mockData.filter(track => track.name.toLowerCase().startsWith(userInput.toLowerCase())));
   };
 
@@ -28,10 +26,7 @@ function App() {
       <main>
         <section>
           <p>Search your favorite songs and create playlists</p>
-          <form onSubmit={handleSubmit}>
-            <input type="text" placeholder="Name of the song.." value={userInput} onChange={onUserInputChange}/>
-            <button type="submit">Search</button>
-          </form>
+          <SearchBar onHandleSubmit={handleSubmit}/>
         </section>
         <section>
           {
