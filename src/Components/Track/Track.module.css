@@ -1,0 +1,19 @@
+.track {
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  justify-items: center;
+  align-items: center;
+}
+
+.trackInfo {
+  justify-self: start;
+}
+
+.trackInfo p {
+  color: rgb(30, 30, 30);
+}
+
+.artwork img {
+  border-radius: 20px;
+}
