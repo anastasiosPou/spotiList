@@ -1,10 +1,39 @@
-.container {
+main {
   display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
   justify-items: center;
+  row-gap: 3rem;
 }
 
 .appName {
   color: #1AB26B;
   font-size: 3rem;
-  font-family: "Trebuchet MS";
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+header {
+  text-align: center;
+}
+
+#search {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  grid-area: 1 / 1 / 2 / -1;
+}
+
+#results {
+  grid-area: 2 / 1 / 3 / 2;
+}
+
+#playlist {
+  grid-area: 2 / 2 / 3 / 3;
+}
+
+@media (min-width: 1000px) {
+  main {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6rem;
+  }
 }

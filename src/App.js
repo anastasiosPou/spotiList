@@ -46,7 +46,7 @@ function App() {
         <h1 className={styles.appName}>SpotiList</h1>
       </header>
       <main>
-        <section>
+        <section id={styles.search}>
           <p>Search your favorite songs and create playlists</p>
           <SearchBar onHandleSubmit={handleSubmit}/>
         </section>
