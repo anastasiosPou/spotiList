@@ -1,0 +1,32 @@
+#playlist {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+}
+
+#playlistNameForm {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+#playlistNameInput {
+  border: none;
+  border-radius: 25px;
+  background-color: #DBDBDB;
+  padding: 0.8rem;
+  color: #1AB26B;
+  font-size: 1.2rem;
+}
+
+#saveBtn {
+  border: none;
+  border-radius: 30px;
+  padding: 0.5rem;
+  background-color: #1AB26B;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+}

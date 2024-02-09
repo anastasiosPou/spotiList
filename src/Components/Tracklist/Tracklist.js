@@ -1,7 +1,7 @@
 import Track from "../Track/Track";
 import styles from "./Tracklist.module.css";
 
-function Tracklist({tracks}) {
+function Tracklist({tracks, buttonStyle, onButtonClick, buttonText}) {
 
   return(
     <section id={styles.tracklist}>
@@ -9,7 +9,7 @@ function Tracklist({tracks}) {
         return (
           <section className={styles.tracklistItem} key={track.id}>
             <Track name={track.name} artist={track.artist} album={track.album} />
-            <button className={styles.addButton}>＋</button>
+            <button className={styles[buttonStyle]} onClick={() => onButtonClick(track.id)}>{buttonText}</button>
           </section>
         );
       })}

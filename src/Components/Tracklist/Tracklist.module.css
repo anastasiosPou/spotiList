@@ -17,11 +17,17 @@
   background-color: #fff;
 }
 
-.addButton {
+.addButton,
+.removeButton{
   color: #1AB26B;
   align-self: center;
+  padding: 10px;
   border: none;
   background-color: transparent;
-  font-size: 2rem;
+  font-size: 3rem;
   cursor: pointer;
+}
+
+.removeButton {
+  color: crimson;
 }
