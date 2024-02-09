@@ -1,14 +1,13 @@
-import {useState} from "react";
 import Track from "../Track/Track";
 import styles from "./Tracklist.module.css";
 
 function Tracklist({tracks}) {
 
   return(
-    <section>
+    <section id={styles.tracklist}>
       {tracks && tracks.map(track => {
         return (
-          <section className={styles.track} key={track.id}>
+          <section className={styles.tracklistItem} key={track.id}>
             <Track name={track.name} artist={track.artist} album={track.album} />
             <button className={styles.addButton}>＋</button>
           </section>

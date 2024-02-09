@@ -1,7 +1,20 @@
-.track {
+.tracklistItem,
+#tracklist {
   display: flex;
+  border-radius: 20px;
+}
+
+#tracklist {
+  flex-flow: column nowrap;
+  gap: 10px;
+  background-color: #1AB26B;
+  padding: 20px;
+}
+
+.tracklistItem {
   flex-flow: row nowrap;
   justify-content: space-evenly;
+  background-color: #fff;
 }
 
 .addButton {
