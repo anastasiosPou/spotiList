@@ -1,7 +1,6 @@
+import {useState} from "react";
 import styles from './App.module.css';
 import tracks from './mockData';
-import {useState} from "react";
-import Track from "./Components/Track/Track";
 import Tracklist from "./Components/Tracklist/Tracklist";
 import SearchBar from "./Components/SearchBar/SearchBar";
 

@@ -2,7 +2,6 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-evenly;
-  background-color: #fff;
 }
 
 .addButton {
