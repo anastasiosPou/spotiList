@@ -27,6 +27,12 @@ function App() {
   playlist
    */
   const handleAdd = (trackID) => {
+    /*
+    If the song is already in the playlist, we shouldn't be able to click add and add it again.
+     */
+    const alreadyInPlayList = playlist.filter(track => track.id === trackID).length > 0;
+    if (alreadyInPlayList) return;
+
     const selectedTrack = searchResults.find(track => track.id === trackID);
     setPlaylist([...playlist, selectedTrack])
   };
