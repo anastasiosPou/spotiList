@@ -1,0 +1,41 @@
+/*Imports*/
+@use '../SharedStyles/shared';
+
+#searchForm {
+  @include shared.setFlexBox(column, nowrap, 4vh, normal);
+}
+
+#songSearchField {
+  border: none;
+  border-radius: shared.$borderRadius;
+  background-color: #DBDBDB;
+  color: shared.$spotifyColor;
+  padding: 4%;
+  font: {
+    size: 1.5rem;
+  }
+}
+
+#submitButton {
+  border: none;
+  border-radius: shared.$borderRadius;
+  padding: 4%;
+  background-color: shared.$spotifyColor;
+  color: shared.$backgroundColor;
+  font: {
+    size: 2rem;
+    weight: bold;
+  }
+  cursor: pointer;
+  transition: {
+    property: background-color, transform;
+    duration: 0.1s;
+    timing-function: ease-in;
+  }
+
+  &:hover {
+    background-color: #0d5f39;
+    transform: scale(0.9);
+  }
+}
+

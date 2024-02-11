@@ -23,12 +23,6 @@ main {
   justify-items: center;
 }
 
-#search {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-}
-
 /* Media queries */
 
 @media (min-width: 1300px) or (orientation: landscape) {

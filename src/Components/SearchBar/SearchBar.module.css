@@ -1,25 +1,41 @@
+/* Variables */
+/*
+mixins
+*/
+/*Imports*/
 #searchForm {
   display: flex;
   flex-flow: column nowrap;
-  row-gap: 60px;
+  gap: 4vh normal;
+  justify-content: flex-start;
+  align-items: stretch;
 }
 
 #songSearchField {
   border: none;
-  border-radius: 25px;
+  border-radius: 30px;
   background-color: #DBDBDB;
-  padding: 0.8rem;
   color: #1AB26B;
-  font-size: 1.2rem;
+  padding: 4%;
+  font-size: 1.5rem;
 }
 
 #submitButton {
   border: none;
   border-radius: 30px;
-  padding: 0.5rem;
+  padding: 4%;
   background-color: #1AB26B;
   color: #fff;
   font-size: 2rem;
   font-weight: bold;
   cursor: pointer;
+  transition-property: background-color, transform;
+  transition-duration: 0.1s;
+  transition-timing-function: ease-in;
 }
+#submitButton:hover {
+  background-color: #0d5f39;
+  transform: scale(0.9);
+}
+
+/*# sourceMappingURL=SearchBar.module.css.map */

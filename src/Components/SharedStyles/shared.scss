@@ -1,7 +1,22 @@
 /* Variables */
 $spotifyColor: #1AB26B;
 $backgroundColor: #fff;
+$borderRadius: 30px;
 
 /*
 mixins
 */
+@mixin setFlexBox(
+  $flex-direction: row,
+  $flex-wrap: nowrap,
+  $row-gap: normal,
+  $column-gap: normal,
+  $justify-content: flex-start,
+  $align-items: stretch
+) {
+  display: flex;
+  flex-flow: $flex-direction $flex-wrap;
+  gap: $row-gap $column-gap;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
