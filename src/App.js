@@ -1,5 +1,5 @@
 import {useState} from "react";
-import styles from './App.module.css';
+import styles from './App.module.scss';
 import tracks from './mockData';
 import Tracklist from "./Components/Tracklist/Tracklist";
 import SearchBar from "./Components/SearchBar/SearchBar";
