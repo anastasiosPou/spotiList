@@ -1,8 +1,11 @@
-//Variables
-$spotifyColor: #1AB26B;
+/*Import shared styles*/
+@use 'Components/SharedStyles/shared';
+
+/*Variables*/
+
 
 .appName {
-  color: $spotifyColor;
+  color: shared.$spotifyColor;
   font-size: 3rem;
   font-family: "Trebuchet MS", sans-serif;
 }

@@ -7,6 +7,7 @@ function SearchBar({onHandleSubmit}) {
   const onUserInputChange = ({target}) => {
     setUserInput(target.value);
   };
+
   return (
     <form onSubmit={(e) => onHandleSubmit(e, userInput)} id={styles.searchForm}>
       <input id={styles.songSearchField} type="text" placeholder="Name of the song.." value={userInput} onChange={onUserInputChange}/>

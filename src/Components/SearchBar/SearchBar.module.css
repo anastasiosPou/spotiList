@@ -2,7 +2,6 @@
   display: flex;
   flex-flow: column nowrap;
   row-gap: 60px;
-  width: 300px;
 }
 
 #songSearchField {
