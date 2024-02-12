@@ -1,10 +1,10 @@
 import {useState} from "react";
 import styles from './App.module.scss';
-import tracks from './mockData';
-import Tracklist from "./Components/Tracklist/Tracklist";
-import SearchBar from "./Components/SearchBar/SearchBar";
-import SearchResults from "./Components/SearchResults/SearchResults";
-import Playlist from "./Components/Playlist/Playlist";
+import tracks from '../../mockData';
+import Tracklist from "../Tracklist/Tracklist";
+import SearchBar from "../SearchBar/SearchBar";
+import SearchResults from "../SearchResults/SearchResults";
+import Playlist from "../Playlist/Playlist";
 
 function App() {
   const mockData = [...tracks];

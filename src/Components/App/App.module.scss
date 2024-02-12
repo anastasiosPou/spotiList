@@ -1,5 +1,5 @@
 /*Import shared styles*/
-@use 'Components/SharedStyles/shared';
+@use '../SharedStyles/shared';
 
 .appName {
   color: shared.$spotifyColor;
