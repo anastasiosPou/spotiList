@@ -1,13 +1,12 @@
 /*Import shared styles*/
 @use 'Components/SharedStyles/shared';
 
-/*Variables*/
-
-
 .appName {
   color: shared.$spotifyColor;
-  font-size: 3rem;
-  font-family: "Trebuchet MS", sans-serif;
+  font: {
+    size: 3rem;
+    family: "Trebuchet MS", sans-serif;
+  }
 }
 
 header {
@@ -16,11 +15,7 @@ header {
 
 /* Mobile first styles */
 main {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
-  row-gap: 3rem;
-  justify-items: center;
+  @include shared.setGrid(1fr, auto, center, stretch, 8vh, 0);
 }
 
 /* Media queries */
@@ -28,9 +23,11 @@ main {
 @media (min-width: 1300px) or (orientation: landscape) {
   main {
     grid-template-columns: repeat(2, 1fr);
+    row-gap: 0;
   }
 
   #search {
     grid-column: 1 / -1;
+    align-self: center;
   }
 }

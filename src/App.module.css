@@ -4,7 +4,6 @@ mixins
 */
 /*Placeholder classes*/
 /*Import shared styles*/
-/*Variables*/
 .appName {
   color: #1AB26B;
   font-size: 3rem;
@@ -20,17 +19,20 @@ main {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
-  row-gap: 3rem;
   justify-items: center;
+  align-items: stretch;
+  gap: 8vh 0;
 }
 
 /* Media queries */
 @media (min-width: 1300px) or (orientation: landscape) {
   main {
     grid-template-columns: repeat(2, 1fr);
+    row-gap: 0;
   }
   #search {
     grid-column: 1/-1;
+    align-self: center;
   }
 }
 
