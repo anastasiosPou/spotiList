@@ -2,6 +2,25 @@
 /*
 mixins
 */
+/*Placeholder classes*/
+#submitButton {
+  border: none;
+  border-radius: 30px;
+  padding: 4%;
+  background-color: #1AB26B;
+  color: #fff;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: bold;
+  transition-property: background-color, transform;
+  transition-duration: 0.1s;
+  transition-timing-function: ease-in;
+}
+#submitButton:hover {
+  background-color: #0d5f39;
+  transform: scale(0.9);
+}
+
 /*Imports*/
 #searchForm {
   display: flex;
@@ -18,24 +37,6 @@ mixins
   color: #1AB26B;
   padding: 4%;
   font-size: 1.5rem;
-}
-
-#submitButton {
-  border: none;
-  border-radius: 30px;
-  padding: 4%;
-  background-color: #1AB26B;
-  color: #fff;
-  font-size: 2rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition-property: background-color, transform;
-  transition-duration: 0.1s;
-  transition-timing-function: ease-in;
-}
-#submitButton:hover {
-  background-color: #0d5f39;
-  transform: scale(0.9);
 }
 
 /*# sourceMappingURL=SearchBar.module.css.map */

@@ -1,0 +1,21 @@
+@use '../SharedStyles/shared';
+
+#playlist {
+  @include shared.setFlexBox(column, nowrap, 2vh);
+}
+
+#playlistNameForm {
+  @include shared.setFlexBox(row, nowrap, 0, 0, center);
+  input {
+    border: none;
+    border-radius: 25px;
+    background-color: shared.$inputBackgroundColor;
+    padding: 0.8rem;
+    color: shared.$spotifyColor;
+    font-size: 1.2rem;
+  }
+}
+
+#saveBtn {
+  @extend %spotilistButton;
+}

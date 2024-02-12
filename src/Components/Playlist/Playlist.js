@@ -1,4 +1,4 @@
-import styles from "./Playlist.module.css";
+import styles from "./Playlist.module.scss";
 import {useState} from "react";
 
 function Playlist({children}) {

@@ -8,7 +8,7 @@
 #songSearchField {
   border: none;
   border-radius: shared.$borderRadius;
-  background-color: #DBDBDB;
+  background-color: shared.$inputBackgroundColor;
   color: shared.$spotifyColor;
   padding: 4%;
   font: {
@@ -17,25 +17,6 @@
 }
 
 #submitButton {
-  border: none;
-  border-radius: shared.$borderRadius;
-  padding: 4%;
-  background-color: shared.$spotifyColor;
-  color: shared.$backgroundColor;
-  font: {
-    size: 2rem;
-    weight: bold;
-  }
-  cursor: pointer;
-  transition: {
-    property: background-color, transform;
-    duration: 0.1s;
-    timing-function: ease-in;
-  }
-
-  &:hover {
-    background-color: #0d5f39;
-    transform: scale(0.9);
-  }
+  @extend %spotilistButton;
 }
 

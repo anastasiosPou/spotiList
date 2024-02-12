@@ -1,17 +1,42 @@
+/* Variables */
+/*
+mixins
+*/
+/*Placeholder classes*/
+#saveBtn {
+  border: none;
+  border-radius: 30px;
+  padding: 4%;
+  background-color: #1AB26B;
+  color: #fff;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: bold;
+  transition-property: background-color, transform;
+  transition-duration: 0.1s;
+  transition-timing-function: ease-in;
+}
+#saveBtn:hover {
+  background-color: #0d5f39;
+  transform: scale(0.9);
+}
+
 #playlist {
   display: flex;
   flex-flow: column nowrap;
-  gap: 1rem;
+  gap: 2vh 0;
+  justify-content: flex-start;
+  align-items: stretch;
 }
 
 #playlistNameForm {
   display: flex;
   flex-flow: row nowrap;
-  align-items: center;
+  gap: 0 0;
   justify-content: center;
+  align-items: stretch;
 }
-
-#playlistNameInput {
+#playlistNameForm input {
   border: none;
   border-radius: 25px;
   background-color: #DBDBDB;
@@ -20,13 +45,4 @@
   font-size: 1.2rem;
 }
 
-#saveBtn {
-  border: none;
-  border-radius: 30px;
-  padding: 0.5rem;
-  background-color: #1AB26B;
-  color: #fff;
-  font-size: 2rem;
-  font-weight: bold;
-  cursor: pointer;
-}
+/*# sourceMappingURL=Playlist.module.css.map */

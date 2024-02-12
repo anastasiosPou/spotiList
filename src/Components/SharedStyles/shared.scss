@@ -2,6 +2,7 @@
 $spotifyColor: #1AB26B;
 $backgroundColor: #fff;
 $borderRadius: 30px;
+$inputBackgroundColor: #DBDBDB;
 
 /*
 mixins
@@ -35,4 +36,27 @@ mixins
   justify-items: $justify-items;
   align-items: $align-items;
   gap: $row-gap $column-gap;
+}
+
+/*Placeholder classes*/
+%spotilistButton {
+  border: none;
+  border-radius: $borderRadius;
+  padding: 4%;
+  background-color: $spotifyColor;
+  color: $backgroundColor;
+  cursor: pointer;
+  font: {
+    size: 2rem;
+    weight: bold;
+  }
+  transition: {
+    property: background-color, transform;
+    duration: 0.1s;
+    timing-function: ease-in;
+  }
+  &:hover {
+    background-color: #0d5f39;
+    transform: scale(0.9);
+  }
 }
