@@ -1,5 +1,5 @@
 import Track from "../Track/Track";
-import styles from "./Tracklist.module.css";
+import styles from "./Tracklist.module.scss";
 
 function Tracklist({tracks, buttonStyle, onButtonClick, buttonText}) {
 

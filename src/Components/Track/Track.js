@@ -5,7 +5,8 @@ function Track({name, artist, album}) {
       <figure className={styles.artwork}><img src="https://picsum.photos/200" alt="artwork" /></figure>
       <section className={styles.trackInfo}>
         <h2>{name}</h2>
-        <p>{artist} | {album}</p>
+        <p>{artist}</p>
+        <p>{album}</p>
       </section>
     </section>
   );

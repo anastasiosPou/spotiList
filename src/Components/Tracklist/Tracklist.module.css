@@ -1,33 +1,47 @@
+/* Variables */
+/*
+mixins
+*/
 .tracklistItem,
 #tracklist {
-  display: flex;
   border-radius: 20px;
 }
 
 #tracklist {
+  display: flex;
   flex-flow: column nowrap;
-  gap: 10px;
+  gap: 10px 10px;
+  justify-content: flex-start;
+  align-items: stretch;
   background-color: #1AB26B;
   padding: 20px;
 }
 
 .tracklistItem {
+  display: flex;
   flex-flow: row nowrap;
-  justify-content: space-evenly;
+  gap: 0 0;
+  justify-content: flex-start;
+  align-items: stretch;
   background-color: #fff;
 }
 
 .addButton,
-.removeButton{
-  color: #1AB26B;
+.removeButton {
   align-self: center;
-  padding: 10px;
+  margin: 30px;
   border: none;
   background-color: transparent;
   font-size: 3rem;
   cursor: pointer;
 }
 
+.addButton {
+  color: #1AB26B;
+}
+
 .removeButton {
   color: crimson;
 }
+
+/*# sourceMappingURL=Tracklist.module.css.map */

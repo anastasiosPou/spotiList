@@ -9,8 +9,8 @@ mixins
 @mixin setFlexBox(
   $flex-direction: row,
   $flex-wrap: nowrap,
-  $row-gap: normal,
-  $column-gap: normal,
+  $row-gap: 0,
+  $column-gap: 0,
   $justify-content: flex-start,
   $align-items: stretch
 ) {

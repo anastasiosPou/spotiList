@@ -16,7 +16,7 @@ mixins
   justify-self: start;
   display: flex;
   flex-flow: column nowrap;
-  gap: normal normal;
+  gap: 0 0;
   justify-content: flex-start;
   align-items: stretch;
 }

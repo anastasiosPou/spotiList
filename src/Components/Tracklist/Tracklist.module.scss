@@ -1,0 +1,35 @@
+@use '../SharedStyles/shared';
+
+.tracklistItem,
+#tracklist {
+  border-radius: 20px;
+}
+
+#tracklist {
+  @include shared.setFlexBox(column, nowrap, 10px, 10px);
+  background-color: shared.$spotifyColor;
+  padding: 20px;
+}
+
+.tracklistItem {
+  @include shared.setFlexBox(row, nowrap, 0, 0);
+  background-color: shared.$backgroundColor;
+}
+
+.addButton,
+.removeButton{
+  align-self: center;
+  margin: 30px;
+  border: none;
+  background-color: transparent;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.addButton {
+  color: shared.$spotifyColor;
+}
+
+.removeButton {
+  color: crimson;
+}
