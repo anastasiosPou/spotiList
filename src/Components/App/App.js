@@ -8,8 +8,14 @@ import Playlist from "../Playlist/Playlist";
 
 function App() {
   const mockData = [...tracks];
-  let [searchResults, setSearchResults] = useState([]);
-  let [playlist, setPlaylist] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+  const [playlist, setPlaylist] = useState([]);
+  const [playlistName, setPlaylistName] = useState("");
+
+
+
+  /* tracksUris should save the uris needed to search the songs in the spotify library*/
+  let tracksUris = [];
 
   /*
   When we press the Search button, handleSubmit should filter the mock data(or send the api call to Spotify)
@@ -45,6 +51,22 @@ function App() {
     setPlaylist(updatedPlaylist);
   };
 
+  /* Save the playlist name*/
+  const handlePlaylistNameChange = ({target}) => setPlaylistName(target.value);
+
+  /*
+  handleSavePlaylist should save the uris of each track in an array for use with the
+  API later. It also needs to reset the playlist and the playlist name.
+   */
+  const handleSavePlaylist = () => {
+    tracksUris = playlist.map(track => track.uri);
+    /*
+    After we've saved the playlist, we should reset it(playlist name and the tracks)
+     */
+    setPlaylist([]);
+    setPlaylistName("");
+  };
+
 
   return (
     <div className={styles.container}>
@@ -67,7 +89,7 @@ function App() {
           </SearchResults>
         }
         {playlist.length > 0 &&
-          <Playlist>
+          <Playlist playlistName={playlistName} onPlaylistNameChange={handlePlaylistNameChange} onPlaylistSave={handleSavePlaylist}>
             <Tracklist
               tracks={playlist}
               buttonStyle="removeButton"

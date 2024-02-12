@@ -1,19 +1,13 @@
 import styles from "./Playlist.module.scss";
-import {useState} from "react";
 
-function Playlist({children}) {
-  const [playlistName, setPlaylistName] = useState("");
-
-  const handlePlaylistNameChange = ({target}) => {
-    setPlaylistName(target.value);
-  }
+function Playlist({children, playlistName, onPlaylistNameChange, onPlaylistSave}) {
   return(
     <section id={styles.playlist}>
       <form id={styles.playlistNameForm}>
-        <input id={styles.playlistNameInput} type="text" placeholder="Playlist name..." value={playlistName} onChange={handlePlaylistNameChange}/>
+        <input id={styles.playlistNameInput} type="text" placeholder="Playlist name..." value={playlistName} onChange={onPlaylistNameChange}/>
       </form>
       {children}
-      <button id={styles.saveBtn}>Save to Spotify</button>
+      <button id={styles.saveBtn} onClick={onPlaylistSave}>Save to Spotify</button>
     </section>
   );
 }
