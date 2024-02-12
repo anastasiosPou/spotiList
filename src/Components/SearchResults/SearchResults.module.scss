@@ -1,0 +1,7 @@
+@use '../SharedStyles/shared';
+
+#results {
+  @include shared.setFlexBox(column);
+}
+
+

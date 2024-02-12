@@ -1,6 +1,13 @@
+/* Variables */
+/*
+mixins
+*/
 #results {
   display: flex;
   flex-flow: column nowrap;
+  gap: normal normal;
+  justify-content: flex-start;
+  align-items: stretch;
 }
 
-
+/*# sourceMappingURL=SearchResults.module.css.map */

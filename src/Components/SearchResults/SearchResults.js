@@ -1,4 +1,4 @@
-import styles from "./SearchResults.module.css";
+import styles from "./SearchResults.module.scss";
 function SearchResults({children}) {
   return(
     <section id={styles.results}>
