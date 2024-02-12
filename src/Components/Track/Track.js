@@ -1,4 +1,4 @@
-import styles from "./Track.module.css";
+import styles from "./Track.module.scss";
 function Track({name, artist, album}) {
   return (
     <section className={styles.track}>

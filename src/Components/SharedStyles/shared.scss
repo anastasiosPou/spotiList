@@ -20,3 +20,19 @@ mixins
   justify-content: $justify-content;
   align-items: $align-items;
 }
+
+@mixin setGrid(
+  $columns: auto,
+  $rows: auto,
+  $justify-items: stretch,
+  $align-items: stretch,
+  $row-gap: 0,
+  $column-gap: 0
+) {
+  display: grid;
+  grid-template-columns: $columns;
+  grid-template-rows: $rows;
+  justify-items: $justify-items;
+  align-items: $align-items;
+  gap: $row-gap $column-gap;
+}
