@@ -3,8 +3,27 @@ const redirectURI = "http://localhost:3000";
 const scope = "playlist-modify-public";
 const authorizationEndpoint = new URL("https://accounts.spotify.com/authorize");
 const tokenEndpoint = new URL("https://accounts.spotify.com/api/token");
-let accessToken = null;
 
+/*
+* This data structure is useful in encapsulating all the necessary info
+* that we need in order to be able to make API request, request refreshed tokens etc.*/
+const accessToken = {
+  get access_token() {return sessionStorage.getItem('access_token') || null;},
+  get refresh_token() {return sessionStorage.getItem('refresh_token') || null;},
+  get expires_in() {return sessionStorage.getItem('expires_in') || null;},
+  get expires() {return sessionStorage.getItem('expires') || null;},
+
+  save: (response) => {
+    const {access_token, refresh_token, expires_in} = response;
+    sessionStorage.setItem('access_token', access_token);
+    sessionStorage.setItem('refresh_token', refresh_token);
+    sessionStorage.setItem('expires_in', expires_in);
+
+    const now = new Date();
+    const expiry = String(new Date(now.getTime() + (expires_in * 1000)));
+    sessionStorage.setItem('expires', expiry);
+  }
+};
 
 const Spotify = {
   /*A code verifier is as high-entropy cryptographic random string*/
@@ -29,15 +48,20 @@ const Spotify = {
         .replace(/\//g, '_');
     }
 
-    const hashed = await sha256(codeVerifier);
-    return base64encode(hashed);
+    try {
+      const hashed = await sha256(codeVerifier);
+      return base64encode(hashed);
+    }
+    catch (error) {
+      console.error('Error while generating code challenge: ', error.message);
+    }
   },
   requestUserAuthorization: async () => {
     const codeVerifier = Spotify.generateCodeVerifier(128);
     const codeChallenge = await Spotify.generateCodeChallengeFrom(codeVerifier);
 
-    //Save the code verifier in localStorage
-    window.localStorage.setItem('code_verifier', codeVerifier);
+    //Save the code verifier in sessionStorage
+    sessionStorage.setItem('code_verifier', codeVerifier);
 
     const params = {
       response_type: 'code',
@@ -49,7 +73,6 @@ const Spotify = {
     };
 
     authorizationEndpoint.search = new URLSearchParams(params).toString();
-    console.log('authorizationEndpoint: ', authorizationEndpoint);
     window.location.href = authorizationEndpoint.toString();
   },
   getCodeAuthorization: () => {
@@ -65,20 +88,37 @@ const Spotify = {
     return authorizationCode;
   },
   getToken: async () => {
-    //If we already have the access token, return it
-    if (accessToken) return accessToken;
-
-    /*If we don't have the token, then we need to, first,
-    * get the authorization code and then proceed with the fetch of the token*/
+    /*Before the App component renders, we call getToken.
+    * If we have already been authorised by the user,
+    * get the codeAuthorization in order to send the request for
+    * the access token*/
     let codeAuthorization = Spotify.getCodeAuthorization();
 
-    /*If we don't have the code authorization, we need to request authorization*/
-    if (!codeAuthorization) {
-      await Spotify.requestUserAuthorization();
-      codeAuthorization = Spotify.getCodeAuthorization();
+    /*If the code Authorization exists(It won't when we first access the app), request the access token*/
+    if (codeAuthorization) {
+      await Spotify.requestAccessToken(codeAuthorization);
     }
 
-    const codeVerifier = localStorage.getItem('code_verifier');
+    /*
+    If the token exists, return the token.
+    */
+    if (accessToken.access_token) {
+      return accessToken.access_token;
+    }
+    /*If the token doesn't exist, it means we first need to
+    * request user authorization. Then(if the user gives access), after the redirection,
+    * we will have the access token.*/
+    else {
+      try {
+        await Spotify.requestUserAuthorization();
+      } catch (error) {
+        console.error('Error while requesting user authorization', error.message);
+      }
+    }
+
+  },
+  requestAccessToken: async (codeAuthorization) => {
+    const codeVerifier = sessionStorage.getItem('code_verifier');
 
     const payload = {
       method: 'POST',
@@ -92,11 +132,14 @@ const Spotify = {
       })
     };
 
-    const body = await fetch(tokenEndpoint, payload);
-    const response = await body.json();
-
-    localStorage.setItem('access_token', response['access_token']);
-    accessToken = response['access_token'];
+    try {
+      const response = await fetch(tokenEndpoint, payload);
+      const jsonData = await response.json();
+      accessToken.save(jsonData);
+    }
+    catch (error) {
+      console.error('Error while fetching token: ', error.message);
+    }
   }
 };
 
