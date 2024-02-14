@@ -12,8 +12,9 @@
 }
 
 .tracklistItem {
-  @include shared.setFlexBox(row, nowrap, 0, 0);
   background-color: shared.$backgroundColor;
+  max-width: 600px;
+  @include shared.setFlexBox(row, nowrap, 0, 0, space-between);
 }
 
 .addButton,

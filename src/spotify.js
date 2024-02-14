@@ -140,7 +140,39 @@ const Spotify = {
     catch (error) {
       console.error('Error while fetching token: ', error.message);
     }
-  }
+  },
+  search: async (term) => {
+    const token = accessToken.access_token;
+
+    if (token) {
+      const params = {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+      try {
+        const response = await fetch(`https://api.spotify.com/v1/search?q=${term}&type=track`, params);
+        const data = await response.json();
+        const tracks = [...data.tracks.items].map(track => {
+          return {
+            artist: track.artists[0].name,
+            album: {
+              name: track.album.name,
+              artwork: track.album.images[0].url
+            },
+            name: track.name,
+            id: track.id,
+            uri: track.uri
+          }
+        });
+
+        return tracks;
+      }
+      catch (error) {
+        console.error('Error while fetching songs: ', error.message);
+      }
+    }
+}
 };
 
 

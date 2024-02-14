@@ -19,13 +19,15 @@ function App() {
   let tracksUris = [];
 
   /*
-  When we press the Search button, handleSubmit should filter the mock data(or send the api call to Spotify)
-  and update the searchResults state variable with the results from the API call to Spotify.
+  When we press the Search button, handleSubmit should send the api call to Spotify
+  and update the searchResults state variable with the tracks from the API call to Spotify.
    */
   const handleSubmit = (e, userInput) => {
     e.preventDefault();
     if (userInput === "") {return;}
-    setSearchResults(mockData.filter(track => track.name.toLowerCase().startsWith(userInput.toLowerCase())));
+    Spotify.search(userInput).then(tracks => {
+      setSearchResults([...tracks]);
+    });
   };
 
   /*

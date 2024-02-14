@@ -20,6 +20,7 @@ mixins
   gap: 0 0;
   justify-content: flex-start;
   align-items: stretch;
+  max-width: 200px;
 }
 .trackInfo h2, .trackInfo p {
   margin: 0;
@@ -40,7 +41,5 @@ mixins
   max-width: 80px;
   height: auto;
 }
-
-/*Media Queries*/
 
 /*# sourceMappingURL=Track.module.css.map */
