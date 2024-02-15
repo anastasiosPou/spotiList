@@ -1,6 +1,5 @@
 import {useState} from "react";
 import styles from './App.module.scss';
-import tracks from '../../mockData';
 import Tracklist from "../Tracklist/Tracklist";
 import SearchBar from "../SearchBar/SearchBar";
 import SearchResults from "../SearchResults/SearchResults";
@@ -8,15 +7,10 @@ import Playlist from "../Playlist/Playlist";
 import Spotify from "../../spotify";
 
 function App() {
-  const mockData = [...tracks];
   const [searchResults, setSearchResults] = useState([]);
   const [playlist, setPlaylist] = useState([]);
   const [playlistName, setPlaylistName] = useState("");
 
-
-
-  /* tracksUris should save the uris needed to search the songs in the spotify library*/
-  let tracksUris = [];
 
   /*
   When we press the Search button, handleSubmit should send the api call to Spotify
@@ -62,12 +56,19 @@ function App() {
   API later. It also needs to reset the playlist and the playlist name.
    */
   const handleSavePlaylist = () => {
-    tracksUris = playlist.map(track => track.uri);
-    /*
-    After we've saved the playlist, we should reset it(playlist name and the tracks)
-     */
-    setPlaylist([]);
-    setPlaylistName("");
+    const tracks = playlist.map(track => track.uri);
+    Spotify.createPlaylist(playlistName, tracks)
+      .then(playlistID => {
+        console.log('playlist ID: ', playlistID);
+          /*
+        After we've saved the playlist, we should reset it(playlist name and the tracks)
+         */
+          setPlaylist([]);
+          setPlaylistName("");
+      })
+      .catch(reason => {
+        console.error('An Error occurred while trying to save the playlist: ', reason.message);
+      })
   };
 
 

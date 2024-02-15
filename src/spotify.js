@@ -66,7 +66,7 @@ const Spotify = {
     const params = {
       response_type: 'code',
       client_id: clientID,
-      scope,
+      scope: scope,
       code_challenge_method: 'S256',
       code_challenge: codeChallenge,
       redirect_uri: redirectURI
@@ -142,7 +142,7 @@ const Spotify = {
     }
   },
   search: async (term) => {
-    const token = accessToken.access_token;
+    const token = await Spotify.getToken();
 
     if (token) {
       const params = {
@@ -172,7 +172,91 @@ const Spotify = {
         console.error('Error while fetching songs: ', error.message);
       }
     }
-}
+},
+  getUserID: async () => {
+    const token = await Spotify.getToken();
+
+    if (token) {
+      const params = {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      };
+
+      try {
+        const response = await fetch('https://api.spotify.com/v1/me', params);
+        const data = await response.json();
+        return data['id'];
+      }
+      catch (error) {
+        console.error('Error while fetch the user\'s ID');
+      }
+    }
+    else {
+      console.error('Couldn\'t retrieve the access token.');
+    }
+  },
+  getPlaylistID: async (playlistName) => {
+    const token = await Spotify.getToken();
+    const userID = await Spotify.getUserID();
+
+    if (token && userID) {
+      const body = JSON.stringify({
+        name: playlistName,
+        description: "New playlist from API!",
+        public: true
+      });
+
+      const params = {
+        method: 'POST',
+        body: body,
+        scope: scope,
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json"
+        }
+      };
+      try {
+        const response = await fetch(`https://api.spotify.com/v1/users/${userID}/playlists`, params);
+        const data = await response.json();
+        return data.id;
+      }
+      catch (error) {
+        console.error('Error while getting the playlist ID: ', error.message);
+      }
+    }
+    else {
+      console.error('Couldn\'t retrieve the access token');
+    }
+  },
+  createPlaylist: async (playlistName, tracks) => {
+    const token = await Spotify.getToken();
+    const playlistID = await Spotify.getPlaylistID(playlistName);
+
+    if (token && playlistID) {
+      const body = JSON.stringify({
+        uris: tracks
+      });
+      const params = {
+        method: 'POST',
+        body: body,
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      };
+
+      try {
+        const response = await fetch(`https://api.spotify.com/v1/playlists/${playlistID}/tracks`, params);
+      }
+      catch (error) {
+        console.error('Error while creating the playlist: ', error.message);
+      }
+    }
+    else {
+      console.error('Couldn\'t retrieve either the token or the playlist ID');
+    }
+  }
 };
 
 
