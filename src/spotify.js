@@ -247,7 +247,7 @@ const Spotify = {
       };
 
       try {
-        const response = await fetch(`https://api.spotify.com/v1/playlists/${playlistID}/tracks`, params);
+        await fetch(`https://api.spotify.com/v1/playlists/${playlistID}/tracks`, params);
       }
       catch (error) {
         console.error('Error while creating the playlist: ', error.message);
