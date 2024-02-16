@@ -1,8 +1,8 @@
-# Getting Started with Create React App
+# SpotiList. A simple Spotify playlist creator
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## How to run the project
 
 In the project directory, you can run:
 
@@ -14,57 +14,50 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## About
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Spotilist is a simple React app that searches the Spotify library for song and creates playlists. It's part of the Full Stack Engineer 
+path's curriculum of Codecademy. Althouth it's a very simple project, it could clearly encapsulate a lot of technologies and be a worthy
+portfolio project. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Technologies used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
++ React
++ Javascript
++ SCSS(Sass)
++ HTML5
 
-### `npm run eject`
+## Features
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Spotilist has the following features:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
++ It can search the Spotify Library for tracks. These will be listed with a limit of 20 tracks.
++ It can create playlists with the tracks you add to the playlist. You give a name, press the Save To Playlist and done!
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Future Enhancements
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+I wanted to create this project with Typescript because it's more versatile and safe, but as it was my first real React project,
+I wanted to make sure that it will work with plain Javascript. I'm going to replace the Javascript with Typescript in the future.
 
-## Learn More
+Some changes would be beneficial with respect to React. There's space for improvement in the React code, for example I could use Reducers in
+some cases to make the code more readable and keep it DRY. 
+Also, the error validation is pretty simple. I could improve it by creating components that will render the necessary html when something's 
+wrong to inform the user.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Another thing that must be done is some minor affordances with respect to user interaction. At the time being, when the user hovers over the 
+search results(a song), it won't give any feedback whether it's possible to press. Although I have clearly created a + (plus) button to indicate
+the add action to the playlist, it would be far more useful to give some visual feedback(other than the obvious button) to the user that they
+can press the song to add it in the playlist. The same goes for the - (minus/remove) button. 
+Furthermore, when we create a playlist, there isn't any feedback that the playlist has been created successfully 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+All these enhancements above would contribute to create a complete project that demostrates my proficiency as a programmer. 
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Screenshots
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<img src="src/screenshots/1.png" alt="User interface of Spotilist"/>
+<img src="src/screenshots/2.png" alt="User interface of Spotilist"/>
+<img src="src/screenshots/4.png" alt="User interface of Spotilist"/>
+<img src="src/screenshots/3.png" alt="User interface of Spotilist"/>
