@@ -1,6 +1,5 @@
 {
   "name": "jammming",
-  "homepage": "https://spotiplaylist.netlify.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
